@@ -72,7 +72,7 @@ def draw():
                 y = serpiente.arreglo[0][1]
                 if x ==  serpiente.arreglo[i][0] and y == serpiente.arreglo[i][1]:
                     modo = "perdiste"
-                    serpiente.arreglo = serpiente.arreglo_inicial
+                    #serpiente.arreglo = serpiente.arreglo_inicial
                 
             ultima_dibujada = millis()
     elif modo == "perdiste":
