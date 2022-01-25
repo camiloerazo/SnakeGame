@@ -1,3 +1,5 @@
+import random
+
 def setup():
     size(600,600)
     frameRate(60)
@@ -45,13 +47,14 @@ ultima_dibujada = 1000000
 tiempo_de_espera = 500
 modo = "jugar"
 comida = Comida()
+comida.x = ((random.randint(0,600)) // 30) * 30
+comida.y = ((random.randint(0,600)) // 30) * 30
 def draw():
     global ultima_dibujada,tiempo_de_espera,modo
     background(0)
     if modo == "jugar":
         serpiente.dibujar()
         comida.dibujar()
-        #print(serpiente.arreglo)
         if abs(ultima_dibujada - millis()) > tiempo_de_espera:
             if serpiente.direccion == "izquierda":
                 serpiente.actualizar_cola()
@@ -72,8 +75,16 @@ def draw():
                 y = serpiente.arreglo[0][1]
                 if x ==  serpiente.arreglo[i][0] and y == serpiente.arreglo[i][1]:
                     modo = "perdiste"
-                    #serpiente.arreglo = serpiente.arreglo_inicial
-                
+                    serpiente.arreglo = serpiente.arreglo_inicial
+                    break
             ultima_dibujada = millis()
+        if serpiente.arreglo[0][0] == comida.x and serpiente.arreglo[0][1] == comida.y:
+            
+            while True:
+                x = ((random.randint(0,600)) // 30) * 30
+                y = ((random.randint(0,600)) // 30) * 30
+                for cuadrado in serpiente.arrelgo:
+                    
+                    
     elif modo == "perdiste":
         text("perdiste",200,200)
