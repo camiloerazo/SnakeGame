@@ -23,6 +23,26 @@ class Serpiente:
             copia = s.arreglo[i-1][:]
             s.arreglo[i][0] = copia[0]
             s.arreglo[i][1] = copia[1]
+    
+    def agregar_cuadro(s):
+        
+        cuadrado_penultimo_x = s.arreglo[len(s.arreglo)-2][0]
+        cuadrado_penultimo_y = s.arreglo[len(s.arreglo)-2][1]
+        cuadrado_ultimo_x = s.arreglo[len(s.arreglo)-1][0]
+        cuadrado_ultimo_y = s.arreglo[len(s.arreglo)-1][1]
+        #falta implementar cuando tiene que poner un cuadrado fuera del mapa
+        if cuadrado_ultimo_x == cuadrado_penultimo_x and cuadrado_ultimo_y == cuadrado_penultimo_y - 30:
+            s.arreglo.append([cuadrado_ultimo_x,cuadrado_ultimo_y + 30])
+            #print("agregue un cuadrado")
+        elif cuadrado_ultimo_x == cuadrado_penultimo_x and cuadrado_ultimo_y == cuadrado_penultimo_y + 30:
+            s.arreglo.append([cuadrado_ultimo_x,cuadrado_ultimo_y - 30])
+            #print("agregue un cuadrado segundo if")
+        elif cuadrado_ultimo_x == cuadrado_penultimo_x + 30 and cuadrado_ultimo_y == cuadrado_penultimo_y:
+            s.arreglo.append([cuadrado_ultimo_x - 30,cuadrado_ultimo_y])
+            #print("agregue un cuadrado tercer if")
+        elif cuadrado_ultimo_x == cuadrado_penultimo_x - 30 and cuadrado_ultimo_y == cuadrado_penultimo_y:
+            s.arreglo.append([cuadrado_ultimo_x + 30,cuadrado_ultimo_y])
+            #print("agregue un cuadrado cuarto if")
             
 class Comida:
     
@@ -90,6 +110,7 @@ def draw():
                     comida.x = x
                     comida.y = y
                     break
+            serpiente.agregar_cuadro()
             
     elif modo == "perdiste":
         text("perdiste",200,200)
