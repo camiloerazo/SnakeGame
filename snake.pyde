@@ -79,12 +79,17 @@ def draw():
                     break
             ultima_dibujada = millis()
         if serpiente.arreglo[0][0] == comida.x and serpiente.arreglo[0][1] == comida.y:
-            
             while True:
                 x = ((random.randint(0,600)) // 30) * 30
                 y = ((random.randint(0,600)) // 30) * 30
-                for cuadrado in serpiente.arrelgo:
-                    
-                    
+                igualdad = 0
+                for cuadrado in serpiente.arreglo:
+                    if x == cuadrado[0] and y == cuadrado[1]:
+                        igualdad += 1
+                if igualdad == 0:
+                    comida.x = x
+                    comida.y = y
+                    break
+            
     elif modo == "perdiste":
         text("perdiste",200,200)
