@@ -33,16 +33,12 @@ class Serpiente:
         #falta implementar cuando tiene que poner un cuadrado fuera del mapa
         if cuadrado_ultimo_x == cuadrado_penultimo_x and cuadrado_ultimo_y == cuadrado_penultimo_y - 30:
             s.arreglo.append([cuadrado_ultimo_x,cuadrado_ultimo_y + 30])
-            #print("agregue un cuadrado")
         elif cuadrado_ultimo_x == cuadrado_penultimo_x and cuadrado_ultimo_y == cuadrado_penultimo_y + 30:
             s.arreglo.append([cuadrado_ultimo_x,cuadrado_ultimo_y - 30])
-            #print("agregue un cuadrado segundo if")
         elif cuadrado_ultimo_x == cuadrado_penultimo_x + 30 and cuadrado_ultimo_y == cuadrado_penultimo_y:
             s.arreglo.append([cuadrado_ultimo_x - 30,cuadrado_ultimo_y])
-            #print("agregue un cuadrado tercer if")
         elif cuadrado_ultimo_x == cuadrado_penultimo_x - 30 and cuadrado_ultimo_y == cuadrado_penultimo_y:
             s.arreglo.append([cuadrado_ultimo_x + 30,cuadrado_ultimo_y])
-            #print("agregue un cuadrado cuarto if")
             
 class Comida:
     
@@ -54,7 +50,6 @@ class Comida:
     
 serpiente = Serpiente()
 def keyPressed():
-
     if key == 'w' and serpiente.direccion != "abajo":
         serpiente.direccion = "arriba"
     elif key == 'a' and serpiente.direccion != "derecha":
