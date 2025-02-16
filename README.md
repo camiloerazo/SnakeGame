@@ -1,3 +1,3 @@
 # SnakeGame
 
-Snake game using Processing3
+Snake game in Python using Processing3 by Camiloerazo 
